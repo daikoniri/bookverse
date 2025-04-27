@@ -1,0 +1,22 @@
+import axios from "axios";
+
+const OPENROUTER_API_KEY = "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"; // твой ключ
+const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"; // новый URL OpenRouter
+
+export async function askAI(message: string) {
+  const response = await axios.post(
+    OPENROUTER_API_URL,
+    {
+      model: "openai/gpt-3.5-turbo", // модель чата
+      messages: [{ role: "user", content: message }],
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  return response.data.choices[0].message.content.trim();
+}
