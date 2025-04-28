@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const OPENROUTER_API_KEY = "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"; // твой ключ
+const OPENROUTER_API_KEY = "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"; // ключ
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"; // новый URL OpenRouter
 
 export async function askAI(message: string) {
